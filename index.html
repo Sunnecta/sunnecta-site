@@ -4,12 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081b20">
 
   <title>SUNNECTA | پیوند با خورشید، مهندسی آینده</title>
-
-  <meta name="description" content="سانکتا؛ گروه مهندسی انرژی‌های تجدیدپذیر، فعال در طراحی، ارزیابی فنی‌اقتصادی، توسعه و اجرای پروژه‌های خورشیدی.">
-
-  <meta name="theme-color" content="#081b20">
+  <meta name="description" content="سانکتا؛ گروه مهندسی انرژی‌های تجدیدپذیر، از ارزیابی فنی‌اقتصادی و طراحی تا تأمین تجهیزات و هماهنگی اجرای پروژه‌های خورشیدی.">
 
   <link rel="icon" type="image/png" href="logo.png">
 
@@ -21,10 +19,8 @@
       --green-soft: #63c995;
       --white: #f1f7f4;
       --muted: #b2c3bf;
-      --line: rgba(141, 240, 176, 0.15);
-
-      --sun-gold: #ffc64d;
-      --sun-amber: #f49a2f;
+      --line: rgba(141, 240, 176, .15);
+      --gold: #ffc64d;
     }
 
     * {
@@ -38,23 +34,14 @@
     body {
       margin: 0;
       min-height: 100vh;
+      overflow-x: hidden;
       color: var(--white);
       background:
-        radial-gradient(
-          ellipse at 77% 42%,
-          rgba(30, 91, 72, 0.18),
-          transparent 36%
-        ),
-        radial-gradient(
-          ellipse at 12% 95%,
-          rgba(31, 91, 74, 0.10),
-          transparent 35%
-        ),
+        radial-gradient(ellipse at 76% 43%, rgba(30, 91, 72, .18), transparent 37%),
+        radial-gradient(ellipse at 10% 95%, rgba(31, 91, 74, .10), transparent 35%),
         var(--bg);
-
       font-family: Tahoma, "Segoe UI", sans-serif;
       line-height: 1.9;
-      overflow-x: hidden;
     }
 
     a {
@@ -70,46 +57,45 @@
       flex-direction: column;
     }
 
-    /* Header */
+    /* HEADER */
 
     .header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
-      padding: 29px 0;
+      gap: 20px;
+      padding: 25px 0;
       border-bottom: 1px solid var(--line);
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 13px;
+      gap: 12px;
       min-width: 0;
     }
 
     .brand-mark {
       position: relative;
+      isolation: isolate;
+      overflow: hidden;
       width: 54px;
       height: 54px;
       flex: 0 0 54px;
-      overflow: hidden;
       border-radius: 12px;
-      isolation: isolate;
-      filter: drop-shadow(0 0 9px rgba(141, 240, 176, 0.10));
     }
 
     .brand-logo {
+      position: relative;
+      z-index: 1;
       display: block;
       width: 100%;
       height: 100%;
       object-fit: contain;
-      position: relative;
-      z-index: 1;
       animation: logo-breathe 5s ease-in-out infinite;
     }
 
-    /* A subtle light sweep over the logo */
+    /* Subtle shine across the real logo */
 
     .brand-mark::after {
       content: "";
@@ -117,24 +103,20 @@
       z-index: 2;
       top: -35%;
       bottom: -35%;
-      left: -85%;
-      width: 48%;
+      left: -90%;
+      width: 43%;
       transform: rotate(24deg);
       background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.05) 25%,
-        rgba(255, 255, 255, 0.52) 50%,
-        rgba(255, 255, 255, 0.08) 75%,
+        rgba(255, 255, 255, .05),
+        rgba(255, 255, 255, .55),
+        rgba(255, 255, 255, .08),
         transparent
       );
       filter: blur(2px);
       pointer-events: none;
       animation: logo-shine 7s ease-in-out infinite;
-    }
-
-    .brand-copy {
-      min-width: 0;
     }
 
     .brand-name {
@@ -143,9 +125,8 @@
       font-family: "Segoe UI", Arial, sans-serif;
       font-size: 23px;
       font-weight: 750;
-      letter-spacing: 2.5px;
+      letter-spacing: 2.4px;
       line-height: 1.5;
-      color: var(--white);
     }
 
     .brand-tagline {
@@ -154,45 +135,67 @@
       white-space: nowrap;
     }
 
+    /* Temporary website badge */
+
     .header-status {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      color: var(--muted);
-      font-size: 12px;
+      gap: 10px;
+      padding: 9px 13px;
+      border: 1px solid rgba(141, 240, 176, .2);
+      border-radius: 10px;
+      background: rgba(141, 240, 176, .045);
       white-space: nowrap;
     }
 
     .status-dot {
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
+      flex: 0 0 8px;
       border-radius: 50%;
       background: var(--green);
-      box-shadow: 0 0 12px rgba(141, 240, 176, 0.65);
+      box-shadow: 0 0 12px rgba(141, 240, 176, .65);
       animation: status-pulse 2.5s ease-in-out infinite;
     }
 
-    /* Main hero */
+    .status-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.8;
+    }
+
+    .status-copy strong {
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .status-copy small {
+      color: var(--muted);
+      font-size: 9px;
+    }
+
+    /* HERO */
 
     .hero {
       flex: 1;
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
+      grid-template-columns: 1.08fr .92fr;
       align-items: center;
-      gap: 58px;
-      padding: 64px 0 72px;
+      gap: 48px;
+      padding: 55px 0 65px;
     }
 
     .hero-content {
       position: relative;
-      z-index: 2;
+      z-index: 4;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 11px;
-      margin-bottom: 19px;
+      margin-bottom: 18px;
       color: var(--green);
       font-family: "Segoe UI", Arial, sans-serif;
       font-size: 11px;
@@ -203,7 +206,6 @@
 
     .eyebrow::before {
       content: "";
-      display: inline-block;
       width: 27px;
       height: 1px;
       background: var(--green-soft);
@@ -212,10 +214,10 @@
     h1 {
       max-width: 610px;
       margin: 0;
-      font-size: clamp(31px, 4vw, 48px);
+      font-size: clamp(31px, 4vw, 47px);
       line-height: 1.75;
       font-weight: 750;
-      letter-spacing: -1.1px;
+      letter-spacing: -1px;
     }
 
     .highlight {
@@ -225,7 +227,7 @@
 
     .hero-description {
       max-width: 560px;
-      margin: 20px 0 0;
+      margin: 19px 0 0;
       color: var(--muted);
       font-size: 14px;
       line-height: 2.25;
@@ -235,36 +237,33 @@
       display: flex;
       flex-wrap: wrap;
       gap: 9px;
-      margin-top: 26px;
+      margin-top: 25px;
     }
 
     .service {
-      padding: 7px 13px;
+      padding: 7px 12px;
       border: 1px solid var(--line);
       border-radius: 7px;
       color: #d4e6dc;
-      background: rgba(141, 240, 176, 0.035);
+      background: rgba(141, 240, 176, .035);
       font-size: 11px;
-      transition:
-        border-color 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease;
+      transition: .25s ease;
     }
 
     .service:hover {
       color: var(--green);
-      border-color: rgba(141, 240, 176, 0.42);
-      background: rgba(141, 240, 176, 0.07);
+      border-color: rgba(141, 240, 176, .42);
+      background: rgba(141, 240, 176, .07);
     }
 
-    /* Contact buttons */
+    /* CONTACT */
 
     .actions {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 33px;
+      margin-top: 31px;
     }
 
     .button {
@@ -273,15 +272,12 @@
       justify-content: center;
       gap: 9px;
       min-height: 46px;
-      padding: 11px 19px;
+      padding: 11px 18px;
       border: 1px solid transparent;
       border-radius: 8px;
       font-size: 12px;
       font-weight: 600;
-      transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        border-color 0.25s ease;
+      transition: transform .25s ease, background .25s ease, border-color .25s ease;
     }
 
     .button:hover {
@@ -291,23 +287,22 @@
     .button-primary {
       color: #09231b;
       background: var(--green);
-      box-shadow: 0 5px 24px rgba(99, 201, 149, 0.10);
+      box-shadow: 0 5px 24px rgba(99, 201, 149, .1);
     }
 
     .button-primary:hover {
       background: #a6f5c1;
-      box-shadow: 0 7px 30px rgba(99, 201, 149, 0.18);
     }
 
     .button-secondary {
       color: var(--white);
-      border-color: rgba(178, 195, 191, 0.23);
-      background: rgba(255, 255, 255, 0.02);
+      border-color: rgba(178, 195, 191, .23);
+      background: rgba(255, 255, 255, .02);
     }
 
     .button-secondary:hover {
-      border-color: rgba(141, 240, 176, 0.45);
-      background: rgba(141, 240, 176, 0.05);
+      border-color: rgba(141, 240, 176, .45);
+      background: rgba(141, 240, 176, .05);
     }
 
     .button svg {
@@ -316,10 +311,9 @@
       flex: 0 0 16px;
     }
 
-    /* Solar visual */
+    /* ORBITAL SOLAR ILLUSTRATION */
 
     .visual {
-      position: relative;
       display: grid;
       place-items: center;
       min-width: 0;
@@ -327,28 +321,28 @@
 
     .solar-art {
       position: relative;
+      isolation: isolate;
       display: grid;
       place-items: center;
-      width: min(100%, 390px);
+      width: min(100%, 410px);
       aspect-ratio: 1;
-      isolation: isolate;
     }
 
     .solar-art::before {
       content: "";
       position: absolute;
       z-index: -1;
-      width: 66%;
-      height: 66%;
+      width: 65%;
+      height: 65%;
       border-radius: 50%;
-      background: rgba(244, 154, 47, 0.055);
+      background: rgba(244, 154, 47, .07);
       filter: blur(48px);
       pointer-events: none;
     }
 
     .ring {
       position: absolute;
-      border: 1px solid rgba(141, 240, 176, 0.16);
+      border: 1px solid rgba(141, 240, 176, .16);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -357,23 +351,23 @@
       width: 96%;
       height: 96%;
       border-style: dashed;
-      border-color: rgba(141, 240, 176, 0.18);
+      border-color: rgba(141, 240, 176, .2);
       animation: rotate 75s linear infinite;
     }
 
     .ring-two {
       width: 76%;
       height: 76%;
-      border-color: rgba(141, 240, 176, 0.26);
+      border-color: rgba(141, 240, 176, .26);
     }
 
     .ring-three {
       width: 58%;
       height: 58%;
-      border-color: rgba(141, 240, 176, 0.13);
+      border-color: rgba(141, 240, 176, .14);
     }
 
-    /* Warm golden sun */
+    /* Golden sun */
 
     .sun {
       position: relative;
@@ -389,12 +383,10 @@
         #f49a2f 72%,
         #c96b28 100%
       );
-
       box-shadow:
-        0 0 22px rgba(255, 197, 77, 0.42),
-        0 0 55px rgba(255, 177, 55, 0.24),
-        0 0 100px rgba(255, 155, 45, 0.12);
-
+        0 0 22px rgba(255, 197, 77, .4),
+        0 0 55px rgba(255, 177, 55, .24),
+        0 0 100px rgba(255, 155, 45, .12);
       animation: sun-glow 4.8s ease-in-out infinite;
     }
 
@@ -402,94 +394,145 @@
       content: "";
       position: absolute;
       inset: -17px;
-      border: 1px solid rgba(255, 207, 104, 0.40);
+      border: 1px solid rgba(255, 207, 104, .4);
       border-radius: 50%;
-      box-shadow: 0 0 20px rgba(255, 187, 66, 0.08);
+      box-shadow: 0 0 20px rgba(255, 187, 66, .08);
     }
 
-    .orbit-dot {
+    /* Small planets on the orbit */
+
+    .planet {
       position: absolute;
-      z-index: 2;
-      top: 13%;
-      right: 21%;
-      width: 11px;
-      height: 11px;
+      z-index: 4;
+      display: block;
+      border: 1px solid rgba(220, 255, 232, .75);
       border-radius: 50%;
       background: var(--green);
-      box-shadow: 0 0 20px rgba(141, 240, 176, 0.65);
+      box-shadow:
+        0 0 7px rgba(141, 240, 176, .7),
+        0 0 19px rgba(141, 240, 176, .35);
     }
 
-    .orbit-dot.two {
-      top: auto;
-      right: auto;
+    .planet-one {
+      width: 11px;
+      height: 11px;
+      top: 13%;
+      right: 21%;
+    }
+
+    .planet-two {
+      width: 8px;
+      height: 8px;
       bottom: 17%;
       left: 13%;
-      width: 7px;
-      height: 7px;
-      opacity: 0.75;
     }
 
-    /* Minimal floating labels */
+    /* Captions and connectors */
 
-    .art-note {
+    .orbit-caption {
       position: absolute;
-      top: 9%;
-      left: -2%;
-      max-width: 150px;
-      color: #9eb7a5;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 190px;
+    }
+
+    .caption-one {
+      top: 7%;
+      right: 23%;
+      flex-direction: row;
+    }
+
+    .caption-two {
+      bottom: 10%;
+      left: 15%;
+      flex-direction: row;
+    }
+
+    .caption-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .caption-copy strong {
+      color: var(--green);
+      font-family: "Segoe UI", Arial, sans-serif;
       font-size: 11px;
-      line-height: 1.9;
-    }
-
-    .art-note b {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--green);
-      font-family: "Segoe UI", Arial, sans-serif;
-      font-size: 12px;
       font-weight: 650;
-      letter-spacing: 1.2px;
+      letter-spacing: 1px;
       direction: ltr;
-    }
-
-    .art-label {
-      position: absolute;
-      right: 0;
-      bottom: 5%;
-      padding: 8px 0;
-      border: none;
-      background: transparent;
-      text-align: right;
-      direction: ltr;
-    }
-
-    .art-label strong {
-      display: block;
-      color: var(--green);
-      font-family: "Segoe UI", Arial, sans-serif;
-      font-size: 12px;
-      font-weight: 650;
-      letter-spacing: 2px;
-    }
-
-    .art-label span {
-      display: block;
-      margin-top: 5px;
-      color: var(--muted);
-      font-family: "Segoe UI", Arial, sans-serif;
-      font-size: 9px;
-      letter-spacing: 1.1px;
       white-space: nowrap;
     }
 
-    /* Footer */
+    .caption-copy span {
+      color: var(--muted);
+      font-size: 9px;
+      line-height: 1.8;
+      white-space: nowrap;
+    }
+
+    .caption-two .caption-copy {
+      direction: ltr;
+      text-align: left;
+    }
+
+    .caption-two .caption-copy span {
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 8px;
+      letter-spacing: .4px;
+    }
+
+    .caption-line {
+      position: relative;
+      width: 28px;
+      height: 1px;
+      flex: 0 0 28px;
+      background: linear-gradient(
+        90deg,
+        rgba(141, 240, 176, .12),
+        rgba(141, 240, 176, .75)
+      );
+    }
+
+    .caption-one .caption-line::before,
+    .caption-two .caption-line::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 9px rgba(141, 240, 176, .55);
+      transform: translateY(-50%);
+    }
+
+    .caption-one .caption-line::before {
+      left: 0;
+    }
+
+    .caption-two .caption-line {
+      background: linear-gradient(
+        90deg,
+        rgba(141, 240, 176, .75),
+        rgba(141, 240, 176, .12)
+      );
+    }
+
+    .caption-two .caption-line::before {
+      right: 0;
+    }
+
+    /* FOOTER */
 
     .footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      padding: 20px 0 23px;
+      padding: 19px 0 22px;
       border-top: 1px solid var(--line);
       color: #829a93;
       font-size: 10px;
@@ -498,74 +541,62 @@
     .footer-en {
       direction: ltr;
       font-family: "Segoe UI", Arial, sans-serif;
-      letter-spacing: 1.4px;
+      letter-spacing: 1.3px;
       text-align: left;
     }
 
-    /* Animations */
+    /* ANIMATIONS */
 
     @keyframes rotate {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     @keyframes sun-glow {
       0%, 100% {
         box-shadow:
-          0 0 22px rgba(255, 197, 77, 0.38),
-          0 0 55px rgba(255, 177, 55, 0.22),
-          0 0 100px rgba(255, 155, 45, 0.10);
+          0 0 22px rgba(255, 197, 77, .38),
+          0 0 55px rgba(255, 177, 55, .22),
+          0 0 100px rgba(255, 155, 45, .1);
       }
-
       50% {
         box-shadow:
-          0 0 30px rgba(255, 207, 100, 0.58),
-          0 0 72px rgba(255, 177, 55, 0.34),
-          0 0 125px rgba(255, 155, 45, 0.17);
+          0 0 30px rgba(255, 207, 100, .58),
+          0 0 72px rgba(255, 177, 55, .34),
+          0 0 125px rgba(255, 155, 45, .17);
       }
     }
 
     @keyframes logo-shine {
-      0%, 62% {
-        left: -85%;
-      }
-
-      82%, 100% {
-        left: 145%;
-      }
+      0%, 62% { left: -90%; }
+      82%, 100% { left: 145%; }
     }
 
     @keyframes logo-breathe {
       0%, 100% {
-        filter: drop-shadow(0 0 2px rgba(141, 240, 176, 0.08));
+        filter: drop-shadow(0 0 2px rgba(141, 240, 176, .08));
       }
-
       50% {
-        filter: drop-shadow(0 0 6px rgba(141, 240, 176, 0.20));
+        filter: drop-shadow(0 0 6px rgba(141, 240, 176, .22));
       }
     }
 
     @keyframes status-pulse {
-      0%, 100% {
-        opacity: 0.65;
-      }
-
-      50% {
-        opacity: 1;
-      }
+      0%, 100% { opacity: .65; }
+      50% { opacity: 1; }
     }
 
-    /* Responsive */
+    /* TABLET */
 
     @media (max-width: 850px) {
       .hero {
         grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 48px 0 52px;
+        gap: 28px;
+        padding: 35px 0 48px;
+      }
+
+      .visual {
+        grid-row: 1;
       }
 
       .hero-content {
@@ -573,52 +604,50 @@
         margin: 0 auto;
       }
 
-      .visual {
-        grid-row: 1;
-      }
-
       .solar-art {
-        width: min(80%, 320px);
-      }
-
-      .art-note {
-        left: -1%;
-        top: 8%;
-      }
-
-      .art-label {
-        right: 0;
-        bottom: 4%;
+        width: min(80%, 340px);
       }
 
       h1 {
         font-size: clamp(30px, 5.2vw, 42px);
       }
+
+      .caption-one {
+        top: 7%;
+        right: 23%;
+      }
+
+      .caption-two {
+        bottom: 10%;
+        left: 15%;
+      }
     }
+
+    /* MOBILE */
 
     @media (max-width: 520px) {
       .page {
-        width: calc(100% - 36px);
+        width: calc(100% - 32px);
       }
 
       .header {
-        padding: 20px 0;
-        gap: 12px;
+        padding: 17px 0;
+        gap: 8px;
       }
 
       .brand {
-        gap: 9px;
+        gap: 8px;
       }
 
       .brand-mark {
-        width: 43px;
-        height: 43px;
-        flex-basis: 43px;
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
       }
 
       .brand-name {
-        font-size: 19px;
-        letter-spacing: 1.7px;
+        font-size: 18px;
+        letter-spacing: 1.5px;
       }
 
       .brand-tagline {
@@ -626,80 +655,112 @@
       }
 
       .header-status {
-        gap: 6px;
-        font-size: 10px;
+        gap: 7px;
+        padding: 7px 8px;
+      }
+
+      .status-dot {
+        width: 6px;
+        height: 6px;
+        flex-basis: 6px;
+      }
+
+      .status-copy strong {
+        font-size: 9px;
+      }
+
+      .status-copy small {
+        font-size: 8px;
       }
 
       .hero {
-        gap: 17px;
-        padding: 30px 0 38px;
+        gap: 21px;
+        padding: 25px 0 35px;
       }
 
       .solar-art {
-        width: min(88%, 290px);
+        width: min(90%, 300px);
       }
 
-      .art-note {
-        left: -4%;
+      .planet-one {
+        width: 9px;
+        height: 9px;
+      }
+
+      .planet-two {
+        width: 7px;
+        height: 7px;
+      }
+
+      .orbit-caption {
+        gap: 5px;
+        max-width: 155px;
+      }
+
+      .caption-one {
         top: 7%;
-        font-size: 10px;
+        right: 21%;
       }
 
-      .art-note b {
-        font-size: 10px;
-        letter-spacing: 0.7px;
+      .caption-two {
+        bottom: 8%;
+        left: 13%;
       }
 
-      .art-label {
-        right: -2%;
-        bottom: 3%;
+      .caption-line {
+        width: 17px;
+        flex-basis: 17px;
       }
 
-      .art-label strong {
-        font-size: 10px;
-        letter-spacing: 1.5px;
+      .caption-copy strong {
+        font-size: 9px;
+        letter-spacing: .4px;
       }
 
-      .art-label span {
+      .caption-copy span {
         font-size: 8px;
-        letter-spacing: 0.5px;
+      }
+
+      .caption-two .caption-copy span {
+        font-size: 7px;
+        letter-spacing: 0;
       }
 
       .eyebrow {
         font-size: 9px;
-        letter-spacing: 1.3px;
-        margin-bottom: 13px;
+        letter-spacing: 1.2px;
+        margin-bottom: 12px;
       }
 
       h1 {
-        font-size: 30px;
+        font-size: 29px;
         line-height: 1.85;
       }
 
       .hero-description {
-        margin-top: 15px;
+        margin-top: 13px;
         font-size: 12px;
         line-height: 2.2;
       }
 
       .services {
         gap: 7px;
-        margin-top: 20px;
+        margin-top: 18px;
       }
 
       .service {
-        padding: 6px 10px;
+        padding: 6px 9px;
         font-size: 10px;
       }
 
       .actions {
         gap: 9px;
-        margin-top: 25px;
+        margin-top: 23px;
       }
 
       .button {
         min-height: 43px;
-        padding: 10px 13px;
+        padding: 9px 12px;
         font-size: 11px;
       }
 
@@ -710,17 +771,59 @@
 
       .footer-en {
         font-size: 8px;
-        letter-spacing: 0.8px;
+        letter-spacing: .6px;
       }
     }
 
-    /* Respect users who prefer reduced motion */
+    @media (max-width: 360px) {
+      .brand-name {
+        font-size: 16px;
+        letter-spacing: 1px;
+      }
+
+      .brand-tagline {
+        font-size: 8px;
+      }
+
+      .status-copy strong {
+        font-size: 8px;
+      }
+
+      .status-copy small {
+        font-size: 7px;
+      }
+
+      .orbit-caption {
+        gap: 4px;
+      }
+
+      .caption-one {
+        right: 18%;
+      }
+
+      .caption-two {
+        left: 9%;
+      }
+
+      .caption-line {
+        width: 12px;
+        flex-basis: 12px;
+      }
+
+      .caption-copy strong {
+        font-size: 8px;
+      }
+
+      .caption-two .caption-copy span {
+        font-size: 6px;
+      }
+    }
 
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
       *::after {
-        animation-duration: 0.01ms !important;
+        animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
       }
@@ -733,36 +836,29 @@
 
     <header class="header">
       <a class="brand" href="/" aria-label="SUNNECTA - صفحه اصلی">
-
         <div class="brand-mark">
-          <img
-            class="brand-logo"
-            src="logo.png"
-            alt="لوگوی سانکتا"
-          >
+          <img class="brand-logo" src="logo.png" alt="لوگوی سانکتا">
         </div>
 
         <div class="brand-copy">
           <div class="brand-name">SUNNECTA</div>
           <div class="brand-tagline">پیوند با خورشید، مهندسی آینده</div>
         </div>
-
       </a>
 
       <div class="header-status">
         <span class="status-dot"></span>
-        <span>وب‌سایت به‌زودی رونمایی می‌شود</span>
+        <span class="status-copy">
+          <strong>نسخه موقت وب‌سایت</strong>
+          <small>رونمایی رسمی به‌زودی</small>
+        </span>
       </div>
     </header>
-
 
     <main class="hero">
 
       <section class="hero-content">
-
-        <div class="eyebrow">
-          RENEWABLE ENERGY ENGINEERING
-        </div>
+        <div class="eyebrow">RENEWABLE ENERGY ENGINEERING</div>
 
         <h1>
           از ایده تا اجرا،
@@ -784,53 +880,33 @@
         </div>
 
         <div class="actions">
-
           <a
             class="button button-primary"
             href="https://wa.me/989052213440"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.7"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
               <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/>
             </svg>
             ارتباط و مشاوره
           </a>
 
-          <a
-            class="button button-secondary"
-            href="mailto:info.Sunnecta@gmail.com"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.7"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
+          <a class="button button-secondary" href="mailto:info.Sunnecta@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
               <rect x="3" y="5" width="18" height="14" rx="2"/>
               <path d="m3 7 9 6 9-6"/>
             </svg>
             ارسال ایمیل
           </a>
-
         </div>
-
       </section>
 
-
       <section class="visual" aria-label="هویت بصری سانکتا">
-
         <div class="solar-art">
 
           <div class="ring ring-one"></div>
@@ -839,34 +915,33 @@
 
           <div class="sun"></div>
 
-          <div class="orbit-dot"></div>
-          <div class="orbit-dot two"></div>
+          <span class="planet planet-one"></span>
+          <span class="planet planet-two"></span>
 
-          <div class="art-note">
-            <b>SUN + CONNECT</b>
-            <span>پیوند انرژی و مهندسی</span>
+          <div class="orbit-caption caption-one">
+            <span class="caption-line"></span>
+            <div class="caption-copy">
+              <strong>SUN + CONNECT</strong>
+              <span>پیوند انرژی و مهندسی</span>
+            </div>
           </div>
 
-          <div class="art-label">
-            <strong>ENGINEERING</strong>
-            <span>DESIGN · PROJECTS · EXECUTION</span>
+          <div class="orbit-caption caption-two">
+            <div class="caption-copy">
+              <strong>ENGINEERING</strong>
+              <span>DESIGN · PROJECTS · EXECUTION</span>
+            </div>
+            <span class="caption-line"></span>
           </div>
 
         </div>
-
       </section>
 
     </main>
 
-
     <footer class="footer">
-      <div>
-        سانکتا؛ همراه شما در مسیر انرژی‌های تجدیدپذیر
-      </div>
-
-      <div class="footer-en">
-        SUNNECTA · RENEWABLE ENERGY
-      </div>
+      <div>سانکتا؛ همراه شما در مسیر انرژی‌های تجدیدپذیر</div>
+      <div class="footer-en">SUNNECTA · RENEWABLE ENERGY</div>
     </footer>
 
   </div>
